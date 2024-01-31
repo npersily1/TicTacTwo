@@ -1,3 +1,5 @@
+import java.awt.*;
+
 /**
  * A class written to support the TicTacToe Game.
  *
@@ -57,5 +59,18 @@ public class Square {
      */
     public String toString() {
         return this.marker;
+    }
+
+    public void draw(Graphics g, int x, int y, TicTacToeViewer window) {
+        g.setColor(Color.WHITE);
+        g.fillRect(0,0, window.WINDOW_WIDTH, window.WINDOW_HEIGHT);
+        if(this.isWinningSquare) {
+            g.setColor(Color.GREEN);
+            g.fillRect(x, y, window.SIDE_LENGTH, window.SIDE_LENGTH);
+        }
+        else {
+            g.setColor(Color.BLACK);
+            g.drawRect(x,y, window.SIDE_LENGTH, window.SIDE_LENGTH);
+        }
     }
 }
