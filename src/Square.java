@@ -2,7 +2,7 @@ import java.awt.*;
 
 /**
  * A class written to support the TicTacToe Game.
- *
+ * <p>
  * Each Square object is one position of the TicTacToe
  * board. It maintains information on the marker, its
  * location on the board, and whether it is part
@@ -22,6 +22,7 @@ public class Square {
     /**
      * Constructor to initialize one Square of the
      * TicTacToe board
+     *
      * @param row the row the square is in
      * @param col the column the square is in
      */
@@ -46,8 +47,25 @@ public class Square {
         this.isWinningSquare = true;
     }
 
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getCol() {
+        return col;
+    }
+
+    public void setCol(int col) {
+        this.col = col;
+    }
+
     /**
      * Checks if the square has the BLANK marker
+     *
      * @return True if the square is empty, False otherwise
      */
     public boolean isEmpty() {
@@ -61,16 +79,23 @@ public class Square {
         return this.marker;
     }
 
-    public void draw(Graphics g, int x, int y, TicTacToeViewer window) {
-        g.setColor(Color.WHITE);
-        g.fillRect(0,0, window.WINDOW_WIDTH, window.WINDOW_HEIGHT);
-        if(this.isWinningSquare) {
+    public void draw(Graphics g, TicTacToeViewer window) {
+        int y = window.X_PADDING + row * window.SIDE_LENGTH;
+        int x = window.Y_PADDING + col * window.SIDE_LENGTH;
+
+        if (this.isWinningSquare) {
             g.setColor(Color.GREEN);
             g.fillRect(x, y, window.SIDE_LENGTH, window.SIDE_LENGTH);
-        }
-        else {
+        } else {
             g.setColor(Color.BLACK);
-            g.drawRect(x,y, window.SIDE_LENGTH, window.SIDE_LENGTH);
+            g.drawRect(x, y, window.SIDE_LENGTH, window.SIDE_LENGTH);
+        }
+        if (!marker.equals("-")) {
+            if (marker.equals("X")) {
+                g.drawImage(window.getXImage(), x, y, window.SIDE_LENGTH, window.SIDE_LENGTH, window);
+            } else {
+                g.drawImage(window.getOImage(), x, y, window.SIDE_LENGTH, window.SIDE_LENGTH, window);
+            }
         }
     }
 }

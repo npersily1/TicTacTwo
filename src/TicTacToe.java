@@ -50,7 +50,7 @@ public class TicTacToe
                 this.board[row][col] = new Square(row, col);
             }
         }
-        window = new TicTacToeViewer(board);
+        window = new TicTacToeViewer(this);
 
         // Initialize winning stats variables
         this.isGameOver = false;
@@ -121,6 +121,7 @@ public class TicTacToe
             } else {
                 System.out.println("That space is taken, or you entered an invalid row/col");
             }
+            window.repaint();
         }
 
         this.printBoard();
@@ -139,6 +140,7 @@ public class TicTacToe
                 System.out.println("X Wins!");
             }
         }
+        window.repaint();
     }
 
 
