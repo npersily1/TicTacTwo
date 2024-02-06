@@ -70,7 +70,12 @@ public class TicTacToeViewer extends JFrame {
     public void drawMessage(String s, Graphics g) {
         Font f = new Font("Sans Serif", Font.BOLD, FONT_SIZE / 2 );
         g.setFont(f);
-        g.drawString(s + "wins", WINDOW_WIDTH /2, WINDOW_HEIGHT - 20);
+        if(!s.equals("-")) {
+            g.drawString(s + "wins", WINDOW_WIDTH / 2, WINDOW_HEIGHT - 20);
+            return;
+        }
+        g.drawString("Tie", WINDOW_WIDTH / 2, WINDOW_HEIGHT - 20);
+
     }
 }
 
