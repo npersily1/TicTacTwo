@@ -35,7 +35,7 @@ public class TicTacToeViewer extends JFrame {
     public Image getOImage() {
         return oImage;
     }
-
+// hi
     public void paint(Graphics g) {
         g.setColor(Color.white);
         g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
