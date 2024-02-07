@@ -14,7 +14,7 @@ import java.util.Scanner;
 
 public class TicTacToe
 {
-    /** Board Markers **/
+   // /** Board Markers **/
     public static final String X_MARKER = "X";
     public static final String O_MARKER = "O";
     public static final String BLANK = "-";

@@ -55,7 +55,7 @@ public class TicTacToeViewer extends JFrame {
     private void drawNumbers(Graphics g) {
         Font f = new Font("Sans Serif", Font.ITALIC, FONT_SIZE);
         g.setFont(f);
-
+//
         int x = X_PADDING + SIDE_LENGTH / 2;
         int y = Y_PADDING + SIDE_LENGTH / 2 ;
         for (int i = 0; i < 3; i++) {
